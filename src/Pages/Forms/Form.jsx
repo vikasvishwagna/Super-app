@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 import './Form.css'
+import img from "../../assets/left-img.png";
+
 
 
 function Form() {
@@ -104,32 +106,51 @@ function Form() {
   }
 
   return (
-    <div className="form-container">
-      <div className="form-left">
-        <p>Discover new things on superapp</p>
+    <div className="main-container">
+      <div className="left-conatiner">
+        <img className="left-img" src={img} alt="left image"/>
+        <p className="left-text">Discover new things on <br />Superapp</p>
       </div>
 
-    <div className="form-right">
-    <form onSubmit={handleSubmit} className="">
-    <p>Super app</p>
-    <p>Create your new account</p>
-      <div className="input-container">
-        <input type="text" name="name" id="name" placeholder="Name" onChange={handleChange}/>
-        <p style={{color:"red"}}>{errors.name}</p>
+    <div className="right-conatiner">
+    <form onSubmit={handleSubmit} className="form-container">
+      <p className="superapp-text">Super app</p>
+      <p className="text-two">Create your new account</p>
 
-        <input type="text" name="username" id="username" placeholder="UserName" onChange={handleChange} />
-        <p style={{color:"red"}}>{errors.username}</p>
+      <div className="form-fields">
+        <input type="text" name="name" id="name" placeholder="Name" onChange={handleChange}
+        className={`input-field ${errors.name ? "input-error" : "input-success"}`}/>
+        <p className="error-text">{errors.name}</p>
 
-        <input type="email" name="email" id="email" placeholder="Email" onChange={handleChange} />
-        <p style={{color:"red"}}>{errors.email}</p>
+        <input type="text" name="username" id="username" placeholder="UserName" onChange={handleChange}  className={`input-field ${errors.username ?"input-error":"input-success"}`}/>
+        <p className="error-text">{errors.username}</p>
 
-        <input type="tel" name="mobile" id="mobile" placeholder="Mobile" onChange={handleChange} />
-        <p style={{color:"red"}}>{errors.mobile}</p>
+        <input type="email" name="email" id="email" placeholder="Email" onChange={handleChange}
+        className={`input-field ${errors.email ? "input-error" : "input-success"}`} />
+        <p className="error-text">{errors.email}</p>
 
-        <input type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckBox} />
-        <p style={{color:"red"}}>{errors.checkbox}</p>
+        <input type="tel" name="mobile" id="mobile" placeholder="Mobile" onChange={handleChange}
+        className={`input-field ${errors.mobile? "input-error" : "input-success"}`} />
+        <p className="error-text">{errors.mobile}</p>
 
-        <button type="submit">SIGN UP</button>
+        <div className="checkbox-container">
+          <input className="checkbox" type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckBox} />
+          <label htmlFor="checkbox" className="checkbox-label">
+           Share my registration data with Superapp
+            </label>
+        </div>
+        <p className="error-text">{errors.checkbox}</p>
+        
+        <button className="signup-btn" type="submit">SIGN UP</button>
+
+        <label className="label1">
+        By clicking on Sign up. you agree to Superapp <br></br>
+        <a className="a-link">Terms and Conditions of Use</a>
+        </label>
+
+        <label className="label2">
+        To learn more about how Superapp collects, uses, shares<br></br>  and protects your personal data please head Superapp<br></br> <a className="a-link">Privacy Policy</a>
+        </label>
       </div>
     </form>
     </div>
