@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import './Form.css'
 
 
 function Form() {
@@ -103,26 +104,36 @@ function Form() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <div className="form-container">
+      <div className="form-left">
+        <p>Discover new things on superapp</p>
+      </div>
+
+    <div className="form-right">
+    <form onSubmit={handleSubmit} className="">
+    <p>Super app</p>
+    <p>Create your new account</p>
+      <div className="input-container">
         <input type="text" name="name" id="name" placeholder="Name" onChange={handleChange}/>
-        <p>{errors.name}</p>
+        <p style={{color:"red"}}>{errors.name}</p>
 
         <input type="text" name="username" id="username" placeholder="UserName" onChange={handleChange} />
-        <p>{errors.username}</p>
+        <p style={{color:"red"}}>{errors.username}</p>
 
         <input type="email" name="email" id="email" placeholder="Email" onChange={handleChange} />
-        <p>{errors.email}</p>
+        <p style={{color:"red"}}>{errors.email}</p>
 
         <input type="tel" name="mobile" id="mobile" placeholder="Mobile" onChange={handleChange} />
-        <p>{errors.mobile}</p>
+        <p style={{color:"red"}}>{errors.mobile}</p>
 
         <input type="checkbox" name="checkbox" id="checkbox" onChange={handleCheckBox} />
-        <p>{errors.checkbox}</p>
+        <p style={{color:"red"}}>{errors.checkbox}</p>
 
         <button type="submit">SIGN UP</button>
       </div>
     </form>
+    </div>
+    </div>
   )
 }
 
