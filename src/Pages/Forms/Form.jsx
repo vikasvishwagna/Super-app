@@ -41,7 +41,7 @@ function Form() {
     e.preventDefault();
     let newErrors = {...errors};
 
-    //name
+    //namee
     if(
       formData.name.trim().length ===0 ||
       formData.name === undefined ||
