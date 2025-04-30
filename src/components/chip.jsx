@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+
 
 function chip({data, selectedMovies, setSelectedMovies}) {
   function handleClick(){
@@ -18,7 +21,7 @@ function chip({data, selectedMovies, setSelectedMovies}) {
       {data}
 
       <div style={{cursor:"pointer"}} onClick={handleClick}>
-        X
+      <FontAwesomeIcon icon={faTimes} />
       </div>
     </div>
   )
