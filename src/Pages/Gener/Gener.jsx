@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import Box from "../../components/Box"
 import Chip from "../../components/chip"
+import NextPage from '../../components/NextPage'
+
 
 
 const MOVIES = [
@@ -15,12 +17,14 @@ const MOVIES = [
   { id: 8, category: "Music" },
 ]
 function Gener() {
+  
   const [selectedMovies, setSelectedMovies] = useState([]);
   return (
     <div>
       <p className='title'>Super app</p>
       <p className='discription'>Choose your entertainment category</p>
-
+      
+      {/* movie boxes */}
       <div className='movie-grid'>
         {MOVIES.map((movie)=>{
           return(
@@ -33,12 +37,16 @@ function Gener() {
 
       <p style={{color:"red"}}>{selectedMovies.length < 3 ? "Minimum 3 category required" : null }</p>
 
+        {/* selected boxes */}
       {selectedMovies.length > 0 ? selectedMovies.map((movieCategory)=>{
         return(
           <Chip data={movieCategory} selectedMovies={selectedMovies}
           setSelectedMovies={setSelectedMovies} />
         )
       }):null}
+
+      <NextPage selectedMovies={selectedMovies}/>
+      
 
     </div>
   )
