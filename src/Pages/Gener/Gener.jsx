@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Box from "../../components/Box"
+import Chip from "../../components/chip"
 
 
 const MOVIES = [
@@ -30,9 +31,14 @@ function Gener() {
         })}
       </div>
 
-      <p style={{color:"red"}}>{selectedMovies.length <= 3 ? "Minimum 3 category required" : null }</p>
+      <p style={{color:"red"}}>{selectedMovies.length < 3 ? "Minimum 3 category required" : null }</p>
 
-      
+      {selectedMovies.length > 0 ? selectedMovies.map((movieCategory)=>{
+        return(
+          <Chip data={movieCategory} selectedMovies={selectedMovies}
+          setSelectedMovies={setSelectedMovies} />
+        )
+      }):null}
 
     </div>
   )
